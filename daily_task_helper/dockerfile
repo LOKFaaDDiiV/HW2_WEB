@@ -1,0 +1,10 @@
+FROM simbachain/poetry:latest
+
+WORKDIR /daily_task_helper
+
+COPY . .
+
+RUN poetry config virtualenvs.create false
+RUN poetry install
+
+ENTRYPOINT ["python", "daily_task_helper/main.py"]
